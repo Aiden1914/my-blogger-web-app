@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs")%>
+
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis">Welcome to My Blogger App</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Unleash Your Creativity. Share Your Story. Welcome to My Blogger App – the ultimate platform for writers, storytellers, and bloggers. Create, publish, and connect with your audience effortlessly.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <a href="/create" style="text-decoration: none;" class="btn btn-primary btn-lg px-4 me-sm-3">Create Post</a>
+      </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        <img src="images/Laptop.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+</div>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% posts.forEach(post => { %>
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="mx-3 my-4"><%= post.cTitle %>.</h3>
+              <hr>
+              <p class="card-text"><%= post.cBody %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/edit/<%= post.cTitle %>" class="btn btn-sm btn-outline-secondary">Edit</a>
+                  <form action="/delete/<%= post.cTitle %>" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+                  </form>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+    </div>
+  </div>

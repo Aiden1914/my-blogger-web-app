@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs")%>
+
+<header>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+    <link rel="stylesheet" href="/styles/content.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</header>
+
+<h1 class="py-5">Create Post!</h1>
+<form class="container mt-1" action="/submit" method="POST">
+  <% if (typeof error !== 'undefined' && error) { %>
+  <p class="fail-fill" style="display: block;">Please fill the spaces</p>
+  <% } else { %>
+  <p class="fail-fill" style="display: none;">Please fill the spaces</p>
+  <% } %>
+  <input name="cTitle" type="text" class="feedback-input" placeholder="Title">
+  <textarea name="cBody" class="feedback-input" placeholder="Text" style="height: 169px;"></textarea>
+  <input type="submit" value="Upload">
+</form>
